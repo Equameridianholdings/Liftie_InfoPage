@@ -18,16 +18,14 @@
 
         <!-- Logo -->
         <div class="logo-area">
-            <img src="Liftie Logo.jpeg" alt="Liftie Logo" class="logo-img">
-            <div class="logo-text">
-                <span class="logo-name">Liftie</span>
-                <span class="logo-tagline">Ride Sharing</span>
-            </div>
+            <div class="logo-mark" role="img" aria-label="Liftie – Ride Sharing"></div>
         </div>
 
         <!-- Tab Navigation -->
         <nav class="tab-nav" id="tabNav">
             <a href="#lift" class="tab-item active" id="tab-carpool" onclick="switchTab(this,'carpool-view')">Lift</a>
+            <a href="#prices"   class="tab-item"          id="tab-prices"    onclick="switchTab(this,'prices-view')">Prices</a>
+            <a href="#how"      class="tab-item"          id="tab-how"       onclick="switchTab(this,'how-view')">How it works</a>
             <a href="#contact"  class="tab-item"          id="tab-contact"   onclick="switchTab(this,'contact-view')">Contact us</a>
             <a href="#about"    class="tab-item"          id="tab-about"     onclick="switchTab(this,'about-view')">About us</a>
             <a href="#blog"     class="tab-item"          id="tab-blog"      onclick="switchTab(this,'blog-view')">Live News</a>
@@ -43,6 +41,8 @@
 <!-- Mobile menu drawer -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="#lift" onclick="switchToView('carpool-view', 'tab-carpool'); closeMobileMenu()">Lift</a>
+    <a href="#prices"   onclick="switchToView('prices-view', 'tab-prices'); closeMobileMenu()">Prices</a>
+    <a href="#how"      onclick="switchToView('how-view', 'tab-how'); closeMobileMenu()">How it works</a>
     <a href="#contact"  onclick="switchToView('contact-view', 'tab-contact'); closeMobileMenu()">Contact us</a>
     <a href="#about"    onclick="switchToView('about-view', 'tab-about'); closeMobileMenu()">About us</a>
     <a href="#blog"     onclick="switchToView('blog-view', 'tab-blog'); closeMobileMenu()">Live News</a>
@@ -56,60 +56,93 @@
 
     <!-- ── HERO ── -->
     <section class="booking-hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content-wrap reveal">
-            <div class="badge-pill">
-                <span>Corporate Cost-Recovery Network</span>
-                <span>Verified professionals · <strong>Weekly payouts</strong></span>
+        <div class="hero-inner">
+            <div class="hero-content-wrap reveal">
+                <div class="hero-slider" id="heroSlider">
+                    <!-- Slide 1 -->
+                    <div class="hero-slide active-slide">
+                        <h1 class="hero-headline">Split The Ride. <span class="accent-green">Split The Cost.</span></h1>
+                        <p class="hero-sub">Share your commute with a colleague or friend and split the fare between you. Save money together on every trip, without sacrificing comfort or convenience.</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hero-slide">
+                        <h1 class="hero-headline">Get Paid <span class="accent-green">For Every Drive.</span></h1>
+                        <p class="hero-sub">Turn your commute into an income stream. Offer a lift, fill your empty seats, and receive fast, automated weekly payouts straight to your account.</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="hero-slide">
+                        <h1 class="hero-headline">Request In Seconds. <span class="accent-green">Matched Instantly.</span></h1>
+                        <p class="hero-sub">Open the app, request or offer a lift, and our smart matching engine instantly pairs you with the most optimized route — fast, effortless, and precise.</p>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="hero-slide">
+                        <h1 class="hero-headline">Different Cars. <span class="accent-green">Same Destination.</span></h1>
+                        <p class="hero-sub">Two riders, two vehicles, one shared route. Our network connects verified professionals heading the same way, so every seat on the road gets filled.</p>
+                    </div>
+                </div>
+
+                <div class="hero-cta-wrap" style="margin-top: 32px;">
+                    <button class="search-btn" id="heroDownloadBtn" onclick="window.location.href='https://pwa.liftie.co.za'" style="font-size: 18px; padding: 18px 48px;">Book a Lift</button>
+                </div>
+
+                <!-- Slider Indicators -->
+                <div class="slider-dots" id="heroDots" style="display: flex; justify-content: flex-start; gap: 8px; margin-top: 40px;">
+                    <div class="dot active" style="width: 32px; height: 6px; background: var(--green); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
+                    <div class="dot" style="width: 12px; height: 6px; background: rgba(0,0,0,0.12); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
+                    <div class="dot" style="width: 12px; height: 6px; background: rgba(0,0,0,0.12); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
+                    <div class="dot" style="width: 12px; height: 6px; background: rgba(0,0,0,0.12); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
+                </div>
             </div>
 
-            <div class="hero-slider" id="heroSlider">
-                <!-- Slide 1 -->
-                <div class="hero-slide active-slide">
-                    <h1 class="hero-headline">Your Commute, Engineered for <span class="accent-green">Fairness.</span></h1>
-                    <p class="hero-sub">Stop paying the full price of a solo drive. Connect with verified professionals and split the cost of your journey using transparent, automated math.</p>
-                </div>
-                <!-- Slide 2 -->
-                <div class="hero-slide">
-                    <h1 class="hero-headline">Maximum <span class="accent-green">Cost Recovery.</span></h1>
-                    <p class="hero-sub">Drivers efficiently recover their vehicle running costs by filling empty seats. Every kilometre earns, seamlessly recovering your fuel expenses.</p>
-                </div>
-                <!-- Slide 3 -->
-                <div class="hero-slide">
-                    <h1 class="hero-headline">Drive Towards <span class="accent-green">Zero Carbon.</span></h1>
-                    <p class="hero-sub">By sharing lifts, we drastically reduce the number of vehicles on the road. Drive change, clear traffic, and build a greener corporate future.</p>
-                </div>
-            </div>
+            <div class="hero-image-wrap reveal delay-1">
+                <div class="hero-image-inner">
+                    <div class="hero-image-frame">
+                        <img src="Liftie_Images/pexels-gustavo-fring-4005053.jpg" alt="Colleagues sharing the cost of a lift" class="hero-slide-image active-slide-image">
+                        <img src="Liftie_Images/pexels-silverkblack-36812486.jpg" alt="Driver earning weekly payouts" class="hero-slide-image">
+                        <img src="Liftie_Images/pexels-wolfart-15674438.jpg" alt="Requesting a lift on the Liftie app" class="hero-slide-image">
+                        <img src="Liftie_Images/pexels-tim-samuel-5835440.jpg" alt="Riders in different cars matched to the same destination" class="hero-slide-image">
+                    </div>
 
-            <div class="hero-cta-wrap" style="margin-top: 32px; position: relative; z-index: 10;">
-                <button class="search-btn" id="heroDownloadBtn" onclick="window.location.href='https://pwa.liftie.co.za'" style="font-size: 18px; padding: 18px 48px;">Book a Lift</button>
-            </div>
-            
-            <!-- Slider Indicators -->
-            <div class="slider-dots" id="heroDots" style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
-                <div class="dot active" style="width: 32px; height: 6px; background: var(--green); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
-                <div class="dot" style="width: 12px; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
-                <div class="dot" style="width: 12px; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; cursor: pointer; transition: 0.3s;"></div>
+                    <div class="hero-stat-card hero-stat-top">
+                        <div class="hero-stat-icon" id="heroStatTopIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                        </div>
+                        <div>
+                            <div class="hero-stat-value" id="heroStatTopValue">50%</div>
+                            <div class="hero-stat-label" id="heroStatTopLabel">Avg. Fare Savings</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat-card hero-stat-bottom">
+                        <div class="hero-stat-icon" id="heroStatBottomIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
+                        </div>
+                        <div>
+                            <div class="hero-stat-value" id="heroStatBottomValue">Split</div>
+                            <div class="hero-stat-label" id="heroStatBottomLabel">Cost With Friends</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ── REFERRAL & SUPPORT SECTION ── -->
     <section class="app-section reveal">
-        <div class="app-inner" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 1100px; padding: 80px 24px; margin: 0 auto; gap: 48px;">
-            <div class="app-text" style="flex: 1 1 500px; text-align: left;">
-                <h2 style="font-size: 36px; font-weight: 800; color: var(--dark-text); margin-bottom: 32px; line-height: 1.2;">Refer your friends and be a partner of Liftie</h2>
-                
-                <div class="store-buttons" style="margin-bottom: 48px;">
+        <div class="app-inner">
+            <div class="app-text">
+                <h2>Refer your friends and be a partner of Liftie</h2>
+
+                <div class="store-buttons">
                     <button class="btn-primary" onclick="window.location.href='https://pwa.liftie.co.za'" style="font-size: 18px; padding: 18px 48px; min-width: 280px; box-shadow: 0 4px 15px rgba(61,107,42,0.3);">Open Web App</button>
                 </div>
-                
-                <h3 style="font-size: 20px; font-weight: 600; color: var(--dark-text-2); margin-bottom: 12px;">In case of any questions or queries, Please write to</h3>
-                <a href="mailto:support@liftie.co.za" style="font-size: 22px; font-weight: 700; color: var(--green); text-decoration: none; display: inline-block; transition: color 0.2s;" onmouseover="this.style.color='var(--green-light)'" onmouseout="this.style.color='var(--green)'">support@liftie.co.za</a>
+
+                <h3 class="app-support-title">In case of any questions or queries, Please write to</h3>
+                <a href="mailto:support@liftie.co.za" class="app-support-email">support@liftie.co.za</a>
             </div>
-            
-            <div class="app-image reveal delay-1" style="flex: 1 1 300px; display: flex; justify-content: center; align-items: center;">
-                <img src="Liftie Logo.jpeg" alt="Liftie Logo" style="max-width: 100%; height: auto; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
+
+            <div class="app-image reveal delay-1">
+                <img src="Liftie_Images/pexels-ai25studioai-7144210.jpg" alt="Refer a friend and ride together" class="app-image-photo">
             </div>
         </div>
     </section>
@@ -120,61 +153,67 @@
         <div style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%); filter: blur(40px); pointer-events: none;"></div>
         
         <div class="seo-inner" style="text-align: center; position: relative; z-index: 2;">
-            <h2 class="seo-title" style="margin-bottom: 16px; color: var(--white);">Why Liftie?</h2>
+            <h2 class="seo-title" style="margin-bottom: 16px; color: var(--dark-text);">Why Liftie?</h2>
             <p class="seo-text" style="text-align: center; max-width: 800px; margin: 0 auto 48px; color: var(--muted);">Liftie is the premium Lift Sharing platform designed exclusively for verified professionals. It seamlessly handles both intercity and intracity commutes, offering unparalleled flexibility and transparency.</p>
             
             <div class="feature-carousel reveal delay-1" id="featureCarousel" style="display: flex; gap: 24px; margin-bottom: 80px; overflow-x: auto; padding: 20px 24px 40px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
                 <!-- Card 1: Instant Matching -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-chris-wade-ntezicimpa-564856410-31374537.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Instant AI Matching</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Instant AI Matching</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">Our algorithm instantly connects riders and drivers heading in the exact same direction. Zero waiting, zero hassle.</p>
                 </div>
                 <!-- Card 2: Same Company -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-gustavo-fring-4005051.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Same-Company Match</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Same-Company Match</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">Network while you commute. Choose to ride exclusively with verified colleagues from your own organization.</p>
                 </div>
                 <!-- Card 3: Gender Match -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-mart-production-7222856.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Gender-Specific Filter</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Gender-Specific Filter</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">Your comfort is our priority. Enable gender-specific matching for complete peace of mind during your commute.</p>
                 </div>
                 <!-- Card 4: Pre-Booked Rides -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-jibarofoto-13536946.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Recurring Rides</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Recurring Rides</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">Automate your week. Pre-book your daily commute or set up recurring rides so your seats are always reserved.</p>
                 </div>
                 <!-- Card 5 -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-lebele-15216662.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Verified Professionals</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Verified Professionals</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">Ride exclusively with verified colleagues within a secure, trusted community. Your safety is non-negotiable.</p>
                 </div>
                 <!-- Card 6 -->
                 <div class="feature-card glass" style="flex: 0 0 80%; max-width: 320px; scroll-snap-align: center; padding: 48px 24px; border-radius: 20px;">
+                    <div style="height: 140px; margin: -48px -24px 24px; border-radius: 20px 20px 0 0; background-image: url('Liftie_Images/pexels-felix-haumann-1938529-14535679.jpg'); background-size: cover; background-position: center;"></div>
                     <div style="width: 64px; height: 64px; background: rgba(61, 107, 42, 0.2); color: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Distance-Based Fares</h3>
+                    <h3 style="font-size: 20px; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;">Distance-Based Fares</h3>
                     <p style="color: var(--muted); font-size: 15px; line-height: 1.6;">No haggling and no surge pricing. Pay only for the exact distance you travel with automated, transparent pricing.</p>
                 </div>
             </div>
 
-            <h2 class="seo-title" style="margin-bottom: 16px; color: var(--white);">Why Should We Share Lifts?</h2>
+            <h2 class="seo-title" style="margin-bottom: 16px; color: var(--dark-text);">Why Should We Share Lifts?</h2>
             <p class="seo-text" style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--muted);">If we all commit to sharing lifts, we dramatically reduce the number of vehicles on the road. This directly translates to lower carbon emissions, cleaner air, significantly reduced traffic congestion, and a vastly improved environment for everyone.</p>
         </div>
     </section>
@@ -331,6 +370,118 @@
 
 
 <!-- ═══════════════════════════════════════════
+     PRICES VIEW
+═══════════════════════════════════════════ -->
+<div id="prices-view" class="page-view">
+    <div class="prices-page">
+        <div class="prices-panel">
+            <h2>Get a Price</h2>
+            <p class="prices-panel-sub">Enter a pickup and dropoff to see an estimated fare.</p>
+
+            <div class="price-field-wrap">
+                <div class="price-field">
+                    <span class="price-field-icon price-field-icon-dot"></span>
+                    <input type="text" id="priceOrigin" placeholder="Pickup location" autocomplete="off">
+                </div>
+            </div>
+            <div class="price-field-wrap">
+                <div class="price-field">
+                    <span class="price-field-icon price-field-icon-square"></span>
+                    <input type="text" id="priceDestination" placeholder="Dropoff location" autocomplete="off">
+                </div>
+            </div>
+
+            <button class="btn-primary price-submit-btn" id="priceCalcBtn" onclick="calculatePrice()">Calculate Price</button>
+
+            <div class="price-error" id="priceError" style="display:none;"></div>
+
+            <div class="price-result" id="priceResult" style="display:none;">
+                <div class="price-result-row">
+                    <span>Estimated distance</span>
+                    <strong id="priceDistance">–</strong>
+                </div>
+                <div class="price-result-row">
+                    <span>Estimated fare</span>
+                    <strong id="priceEstimate">–</strong>
+                </div>
+                <p class="price-disclaimer">Placeholder estimate for illustration only. Liftie has no price surges — your final fare depends on how many riders are matched to this route.</p>
+            </div>
+
+            <div class="price-carpool-card" id="priceCarpoolCard" style="display:none;">
+                <div class="price-carpool-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                </div>
+                <h3>The Power of Carpooling</h3>
+                <p class="price-carpool-sub">Share this exact lift with 2 other riders and split the fare three ways.</p>
+                <div class="price-carpool-amount"><strong id="priceCarpoolAmount">–</strong><span>per person</span></div>
+                <p class="price-carpool-savings">You'd save <strong id="priceCarpoolSavings">–</strong> by sharing this ride instead of going solo.</p>
+                <p class="price-disclaimer">Estimate only. Assumes 2 other riders are matched to this same lift and route — actual savings depend on real-time matching.</p>
+            </div>
+        </div>
+
+        <div class="prices-map-wrap">
+            <div id="pricesMap" class="prices-map"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS VIEW
+═══════════════════════════════════════════ -->
+<div id="how-view" class="page-view">
+    <div class="inner-page">
+        <h2 class="inner-title">How It Works</h2>
+
+        <div class="how-toggle" role="tablist">
+            <button class="how-toggle-btn active" id="howToggleRider" onclick="setHowPerspective('rider')">Find a Ride</button>
+            <button class="how-toggle-btn" id="howToggleDriver" onclick="setHowPerspective('driver')">Offer a Lift</button>
+        </div>
+
+        <div class="how-content">
+            <div class="how-image-col">
+                <img id="howImage" src="Liftie_Images/Screenshot 2026-07-03 192436.png" alt="Requesting a lift on the Liftie app" class="how-image">
+            </div>
+
+            <div class="how-steps-col">
+                <!-- Rider timeline -->
+                <div class="how-timeline" id="howTimelineRider">
+                    <div class="how-timeline-step">
+                        <h3>1. Request a Lift</h3>
+                        <p>Open the Liftie app and enter your destination. Choose to match only with verified colleagues from your own company, or open it up to any verified professional heading your way.</p>
+                    </div>
+                    <div class="how-timeline-step">
+                        <h3>2. Get Matched &amp; Ride</h3>
+                        <p>Our matching engine instantly pairs you with a driver on the same route. See your driver's details, ETA, and your upfront fare before you even leave.</p>
+                    </div>
+                    <div class="how-timeline-step">
+                        <h3>3. Arrive &amp; Pay Automatically</h3>
+                        <p>Hop out at your destination. Your fare is calculated and charged automatically — no cash, no haggling, no surprises.</p>
+                    </div>
+                </div>
+
+                <!-- Driver timeline -->
+                <div class="how-timeline" id="howTimelineDriver" style="display:none;">
+                    <div class="how-timeline-step">
+                        <h3>1. Set Your Route</h3>
+                        <p>Open the app and enter where you're headed. Set your preferences — same-company only, gender-specific matching, or open to all verified riders.</p>
+                    </div>
+                    <div class="how-timeline-step">
+                        <h3>2. Pick Up Matched Riders</h3>
+                        <p>We match you with verified riders travelling your way, with minimal detours. Confirm the pickup and you're on your way.</p>
+                    </div>
+                    <div class="how-timeline-step">
+                        <h3>3. Get Paid Weekly</h3>
+                        <p>Every completed ride adds to your earnings. Payouts are automated and deposited straight to your account every week — no invoicing required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
      CONTACT VIEW
 ═══════════════════════════════════════════ -->
 <div id="contact-view" class="page-view">
@@ -413,7 +564,7 @@
                 </div>
             </div>
             <div class="about-logo-area">
-                <img src="Liftie Logo.jpeg" alt="Liftie" class="about-logo">
+                <div class="logo-mark logo-mark-about" role="img" aria-label="Liftie – Ride Sharing"></div>
             </div>
         </div>
     </div>
@@ -441,11 +592,7 @@
     <div class="footer-inner">
         <div class="footer-brand">
             <div class="footer-logo-wrap">
-                <img src="Liftie Logo.jpeg" alt="Liftie" class="footer-logo">
-                <div class="logo-text">
-                    <span class="logo-name">Liftie</span>
-                    <span class="logo-tagline" style="color:var(--subtle)">Ride Sharing</span>
-                </div>
+                <div class="logo-mark logo-mark-footer" role="img" aria-label="Liftie – Ride Sharing"></div>
             </div>
             <p>Smart lift sharing for a better tomorrow</p>
             <!-- Social Media -->
@@ -500,5 +647,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVRsJMfDAwh2IZ-Celg1QPgl7C17GQL9o&libraries=places,geometry&callback=onGoogleMapsReady"></script>
 </body>
 </html>
